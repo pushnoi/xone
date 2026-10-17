@@ -1,0 +1,11 @@
+[Unit]
+Description=Check Xbox receiver initialization failures at boot and after resume
+
+[Timer]
+OnBootSec=5s
+OnUnitInactiveSec=5s
+AccuracySec=1s
+Unit=xbox-receiver-recovery.service
+
+[Install]
+WantedBy=timers.target

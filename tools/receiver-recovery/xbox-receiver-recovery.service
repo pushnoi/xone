@@ -1,0 +1,15 @@
+[Unit]
+Description=Recover the configured Xbox receiver after radio initialization timeout
+After=systemd-journald.service systemd-udevd.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /usr/local/lib/xbox-receiver-recovery/recover.py
+RuntimeDirectory=xbox-receiver-recovery
+RuntimeDirectoryMode=0700
+RuntimeDirectoryPreserve=yes
+TimeoutStartSec=45
+NoNewPrivileges=yes
+PrivateTmp=yes
+LogLevelMax=notice
+SyslogLevel=notice
